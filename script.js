@@ -707,3 +707,40 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+function searchByCategory() {
+  const category = document.getElementById('categoryFilter').value;
+  if (category) {
+    // هنا نربط كل قسم بكلمات مفتاحية
+    const keywordsMap = {
+      "تجارة": "بيع شراء ميزان",
+      "تعليم": "علم تعليم",
+      "إدارة": "عدل شورى",
+      "إعلام": "قول صدق",
+      "استثمار": "زرع حرث",
+      "مالية": "دين قرض"
+    };
+    searchQuran(keywordsMap[category]);
+  }
+}
+
+function searchQuran(query) {
+  const keyword = query || document.getElementById('keywordSearch').value.trim();
+  if (!keyword) return;
+
+  fetch(`https://api.alquran.cloud/v1/search/${encodeURIComponent(keyword)}/all/ar`)
+    .then(res => res.json())
+    .then(data => {
+      const tbody = document.querySelector('#quranTable tbody');
+      tbody.innerHTML = '';
+      data.data.matches.forEach(match => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${document.getElementById('categoryFilter').value || '—'}</td>
+          <td>${match.text} [${match.surah.name}:${match.numberInSurah}]</td>
+          <td><button onclick="showTafsir(${match.number})">📘 عرض التفسير</button></td>
+          <td>—</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    });
+}

@@ -1,0 +1,29 @@
+<!-- داخل matrix.html -->
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+
+<div class="controls">
+  <select id="categoryFilter" onchange="searchByCategory()">
+    <option value="">اختر القسم</option>
+    <option value="تجارة">التجارة</option>
+    <option value="تعليم">التعليم</option>
+    <option value="إدارة">الإدارة</option>
+    <option value="إعلام">الإعلام</option>
+    <option value="استثمار">الاستثمار</option>
+    <option value="مالية">المعاملات المالية</option>
+  </select>
+  <input type="text" id="keywordSearch" placeholder="ابحث بكلمة مفتاحية...">
+  <button onclick="searchQuran()">بحث</button>
+</div>
+
+<table id="quranTable">
+  <thead>
+    <tr>
+      <th>القسم</th>
+      <th>الآية</th>
+      <th>التفسير</th>
+      <th>التطبيق العملي</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
