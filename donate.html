@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>تبرع للتطوير | مرشد القرآن الذكي</title>
+  <link rel="icon" href="quran.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .toggle { position: absolute; inline-size:1px; block-size:1px; clip:rect(0 0 0 0); clip-path:inset(50%); overflow:hidden; white-space:nowrap; }
+    .page .lang { display:none; }
+    #lang-ar:checked ~ .page .lang-ar { display:block; }
+    #lang-en:checked ~ .page .lang-en { display:block; }
+    #lang-fr:checked ~ .page .lang-fr { display:block; }
+    .lang-switch .btn { padding:6px 10px; }
+    .donate-options { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 20px; }
+    .donate-options a { flex: 1 1 200px; text-align: center; }
+  </style>
+</head>
+<body>
+  <input id="lang-ar" class="toggle" type="radio" name="lang" checked />
+  <input id="lang-en" class="toggle" type="radio" name="lang" />
+  <input id="lang-fr" class="toggle" type="radio" name="lang" />
+
+  <header class="app-header container">
+    <div class="brand">
+      <img src="quran.svg" alt="Quran" class="logo" />
+      <div>
+        <h1>تبرع للتطوير</h1>
+        <p class="subtitle">ساهم في استمرار وتطوير المنصة</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <div class="lang-switch">
+        <label class="btn ghost small" for="lang-ar">AR</label>
+        <label class="btn ghost small" for="lang-en">EN</label>
+        <label class="btn ghost small" for="lang-fr">FR</label>
+      </div>
+      <a class="btn ghost" href="index.html">الرئيسية</a>
+    </div>
+  </header>
+
+  <main class="container page">
+    <!-- Arabic -->
+    <section class="lang lang-ar">
+      <div class="card">
+        <p>بدعمك، نستطيع تحسين تجربة البحث، إضافة مزايا جديدة، وضمان استمرارية الخدمة.</p>
+        <div class="donate-options">
+          <a href="https://www.paypal.com/" class="btn primary">💳 باي بال</a>
+          <a href="https://www.visa.com/" class="btn primary">💳 فيزا/ماستركارد</a>
+          <a href="https://www.patreon.com/" class="btn primary">🤝 باتريون</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- English -->
+    <section class="lang lang-en">
+      <div class="card">
+        <p>Your support helps us improve search, add new features, and keep the service running.</p>
+        <div class="donate-options">
+          <a href="https://www.paypal.com/" class="btn primary">💳 PayPal</a>
+          <a href="https://www.visa.com/" class="btn primary">💳 Visa/Mastercard</a>
+          <a href="https://www.patreon.com/" class="btn primary">🤝 Patreon</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Français -->
+    <section class="lang lang-fr">
+      <div class="card">
+        <p>Votre soutien nous aide à améliorer la recherche, ajouter des fonctionnalités et maintenir le service.</p>
+        <div class="donate-options">
+          <a href="https://www.paypal.com/" class="btn primary">💳 PayPal</a>
+          <a href="https://www.visa.com/" class="btn primary">💳 Visa/Mastercard</a>
+          <a href="https://www.patreon.com/" class="btn primary">🤝 Patreon</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer container">
+    <p>تصميم وتطوير: <strong>طارق ناجمي</strong> — جميع الحقوق محفوظة لـ <strong>E‑Smart Market Pro</strong></p>
+  </footer>
+</body>
+</html>
