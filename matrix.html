@@ -1,29 +1,119 @@
-<!-- داخل matrix.html -->
-<link rel="stylesheet" href="style.css">
-<script src="script.js" defer></script>
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>المصفوفة القرآنية | مرشد القرآن الذكي</title>
+  <link rel="icon" href="quran.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header container">
+    <div class="brand">
+      <img src="quran.svg" alt="Quran" class="logo" />
+      <div>
+        <h1>📜 المصفوفة القرآنية</h1>
+        <p class="subtitle">فلترة وعرض الآيات حسب القسم أو البحث بالكلمة المفتاحية</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <a class="btn ghost" href="index.html">الرئيسية</a>
+    </div>
+  </header>
 
-<div class="controls">
-  <select id="categoryFilter" onchange="searchByCategory()">
-    <option value="">اختر القسم</option>
-    <option value="تجارة">التجارة</option>
-    <option value="تعليم">التعليم</option>
-    <option value="إدارة">الإدارة</option>
-    <option value="إعلام">الإعلام</option>
-    <option value="استثمار">الاستثمار</option>
-    <option value="مالية">المعاملات المالية</option>
-  </select>
-  <input type="text" id="keywordSearch" placeholder="ابحث بكلمة مفتاحية...">
-  <button onclick="searchQuran()">بحث</button>
-</div>
+  <main class="container">
+    <section class="card">
+      <div class="controls" style="display:flex;gap:8px;flex-wrap:wrap;">
+        <select id="categoryFilter" onchange="searchByCategory()">
+          <option value="">اختر القسم</option>
+          <option value="تجارة">التجارة</option>
+          <option value="تعليم">التعليم</option>
+          <option value="إدارة">الإدارة</option>
+          <option value="إعلام">الإعلام</option>
+          <option value="استثمار">الاستثمار</option>
+          <option value="مالية">المعاملات المالية</option>
+        </select>
+        <input type="text" id="keywordSearch" placeholder="ابحث بكلمة مفتاحية...">
+        <button class="btn primary" onclick="searchQuran()">بحث</button>
+      </div>
+    </section>
 
-<table id="quranTable">
-  <thead>
-    <tr>
-      <th>القسم</th>
-      <th>الآية</th>
-      <th>التفسير</th>
-      <th>التطبيق العملي</th>
-    </tr>
-  </thead>
-  <tbody></tbody>
-</table>
+    <section class="card" style="margin-top:16px;">
+      <table id="quranTable" style="width:100%;border-collapse:collapse;">
+        <thead>
+          <tr>
+            <th>القسم</th>
+            <th>الآية</th>
+            <th>التفسير</th>
+            <th>التطبيق العملي</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="4" style="text-align:center;color:var(--muted);">اختر قسمًا أو أدخل كلمة مفتاحية لعرض النتائج</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer class="app-footer container">
+    <p>تصميم وتطوير: <strong>طارق ناجمي</strong> — جميع الحقوق محفوظة لـ <strong>E‑Smart Market Pro</strong></p>
+  </footer>
+
+  <script>
+    const keywordsMap = {
+      "تجارة": "بيع شراء ميزان",
+      "تعليم": "علم تعليم",
+      "إدارة": "عدل شورى",
+      "إعلام": "قول صدق",
+      "استثمار": "زرع حرث",
+      "مالية": "دين قرض"
+    };
+
+    function searchByCategory() {
+      const category = document.getElementById('categoryFilter').value;
+      if (category) {
+        searchQuran(keywordsMap[category], category);
+      }
+    }
+
+    function searchQuran(query, categoryLabel) {
+      const keyword = query || document.getElementById('keywordSearch').value.trim();
+      if (!keyword) return;
+
+      fetch(`https://api.alquran.cloud/v1/search/${encodeURIComponent(keyword)}/all/ar`)
+        .then(res => res.json())
+        .then(data => {
+          const tbody = document.querySelector('#quranTable tbody');
+          tbody.innerHTML = '';
+          if (!data.data.matches.length) {
+            tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;">لا توجد نتائج مطابقة</td></tr>';
+            return;
+          }
+          data.data.matches.forEach(match => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+              <td>${categoryLabel || document.getElementById('categoryFilter').value || '—'}</td>
+              <td>${match.text} [${match.surah.name}:${match.numberInSurah}]</td>
+              <td><button class="btn small" onclick="showTafsir(${match.surah.number},${match.numberInSurah})">📘 عرض التفسير</button></td>
+              <td>—</td>
+            `;
+            tbody.appendChild(tr);
+          });
+        })
+        .catch(err => {
+          console.error(err);
+          alert("حدث خطأ أثناء جلب البيانات");
+        });
+    }
+
+    function showTafsir(surah, ayah) {
+      fetch(`https://api.quran.com/api/v4/tafsirs/169/by_ayah/${surah}:${ayah}?language=ar`)
+        .then(res => res.json())
+        .then(data => {
+          alert(data.tafsir.text || "لا يوجد تفسير متاح");
+        })
+        .catch(() => alert("تعذر جلب التفسير"));
+    }
+  </script>
+</body>
+</html>
