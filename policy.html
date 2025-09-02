@@ -1,4 +1,256 @@
-<h2>سياسة الاستخدام</h2>
-<div>يُمنع استخدام الموقع في أي نشاط مخالف للشريعة أو القوانين المحلية.</div>
-<h2>سياسة الخصوصية</h2>
-<div>لا يتم جمع أي بيانات شخصية دون إذن المستخدم.</div>
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>السياسة | مرشد القرآن الذكي</title>
+  <link rel="icon" href="quran.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* تبديل اللغات بدون JS */
+    .toggle { position: absolute; inline-size:1px; block-size:1px; clip:rect(0 0 0 0); clip-path:inset(50%); overflow:hidden; white-space:nowrap; }
+    .page .lang { display:none; }
+    #lang-ar:checked ~ .page .lang-ar { display:block; }
+    #lang-en:checked ~ .page .lang-en { display:block; }
+    #lang-fr:checked ~ .page .lang-fr { display:block; }
+    .lang-switch .btn { padding:6px 10px; }
+    .legal details { margin-top: 10px; }
+    .legal summary { cursor: pointer; font-weight: 600; color: var(--gold); }
+    .legal .card { margin-top: 12px; }
+  </style>
+</head>
+<body>
+  <!-- مفاتيح اللغة -->
+  <input id="lang-ar" class="toggle" type="radio" name="lang" checked />
+  <input id="lang-en" class="toggle" type="radio" name="lang" />
+  <input id="lang-fr" class="toggle" type="radio" name="lang" />
+
+  <header class="app-header container">
+    <div class="brand">
+      <img src="quran.svg" alt="Quran" class="logo" />
+      <div>
+        <h1>سياسة الاستخدام والخصوصية</h1>
+        <p class="subtitle">سياسات واضحة لحماية المستخدم واحترام النص القرآني</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <div class="lang-switch">
+        <label class="btn ghost small" for="lang-ar">AR</label>
+        <label class="btn ghost small" for="lang-en">EN</label>
+        <label class="btn ghost small" for="lang-fr">FR</label>
+      </div>
+      <a class="btn ghost" href="index.html">الرئيسية</a>
+      <a class="btn ghost" href="donate.html">تبرع</a>
+      <a class="btn ghost" href="signup.html">التسجيل</a>
+      <a class="btn ghost" href="login.html">تسجيل الدخول</a>
+    </div>
+  </header>
+
+  <main class="container page legal">
+    <!-- Arabic -->
+    <section class="lang lang-ar">
+      <div class="card">
+        <h2>سياسة الاستخدام</h2>
+        <details open>
+          <summary>النطاق والغرض</summary>
+          <div class="legal-body">
+            <p>تحدد هذه السياسة قواعد استخدام منصة "مرشد القرآن الذكي" للأغراض الشخصية والتعليمية، مع احترام قدسية النص القرآني والحقوق الفكرية لمصادره.</p>
+          </div>
+        </details>
+        <details>
+          <summary>الاستخدام المقبول</summary>
+          <div class="legal-body">
+            <ul>
+              <li>البحث في الآيات وقراءتها ومشاركة مقتطفات منها مع ذكر السورة والآية.</li>
+              <li>الاعتماد على التفسير المختصر للإفادة العامة لا للإفتاء.</li>
+              <li>الالتزام بآداب التعامل مع نصوص القرآن الكريم.</li>
+            </ul>
+          </div>
+        </details>
+        <details>
+          <summary>الاستخدام المحظور</summary>
+          <div class="legal-body">
+            <ul>
+              <li>تشويه المعاني أو اقتطاع النص من سياقه لإضرار أو تضليل.</li>
+              <li>إعادة نشر المحتوى بصفة تجارية دون إذن من أصحاب الحقوق.</li>
+              <li>محاولة إساءة استخدام الواجهة أو استهلاك الموارد بشكل غير عادل.</li>
+            </ul>
+          </div>
+        </details>
+        <details>
+          <summary>حقوق الملكية الفكرية</summary>
+          <div class="legal-body">
+            <p>حقوق نصوص القرآن والتفاسير تعود لمصادرها الرسمية. تصميم وتطوير المنصة محميان بحقوق E‑Smart Market Pro.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="card">
+        <h2>سياسة الخصوصية</h2>
+        <details open>
+          <summary>البيانات التي نجمعها</summary>
+          <div class="legal-body">
+            <p>لا نجمع بيانات شخصية حساسة. قد يستخدم المتصفح التخزين المحلي لحفظ المفضلة والوضع الليلي وإعدادات اللغة على جهازك فقط.</p>
+          </div>
+        </details>
+        <details>
+          <summary>ملفات تعريف الارتباط والقياس</summary>
+          <div class="legal-body">
+            <p>لا نُنشئ ملفات تعريف ارتباط من طرفنا. مزودو واجهات البرمجة الخارجية قد يطبقون سياساتهم الخاصة.</p>
+          </div>
+        </details>
+        <details>
+          <summary>مشاركة البيانات وأمنها</summary>
+          <div class="legal-body">
+            <p>لا نشارك بياناتك مع أطراف ثالثة. يتعين عليك عدم إدخال معلومات حساسة داخل الحقول غير المخصصة لذلك.</p>
+          </div>
+        </details>
+        <details>
+          <summary>تغييرات على السياسة</summary>
+          <div class="legal-body">
+            <p>قد يتم تحديث هذه السياسة دون إشعار مسبق. استمرار الاستخدام يعني الموافقة على النسخة الأحدث.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- English -->
+    <section class="lang lang-en">
+      <div class="card">
+        <h2>Usage policy</h2>
+        <details open>
+          <summary>Scope and purpose</summary>
+          <div class="legal-body">
+            <p>This policy governs personal and educational use of the Smart Quran Guide, honoring the sanctity of the Quranic text and copyrights of its sources.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Acceptable use</summary>
+          <div class="legal-body">
+            <ul>
+              <li>Search, read, and share short quotes with surah and ayah citation.</li>
+              <li>Use concise tafsir for general benefit, not for issuing fatwas.</li>
+              <li>Observe proper etiquette when handling Quranic content.</li>
+            </ul>
+          </div>
+        </details>
+        <details>
+          <summary>Prohibited use</summary>
+          <div class="legal-body">
+            <ul>
+              <li>Misrepresenting meanings or taking verses out of context to harm or mislead.</li>
+              <li>Commercial redistribution without permission from rights holders.</li>
+              <li>Abusing the interface or consuming resources unfairly.</li>
+            </ul>
+          </div>
+        </details>
+        <details>
+          <summary>Intellectual property</summary>
+          <div class="legal-body">
+            <p>Quran text and tafsir copyrights belong to their official sources. Platform design and development are protected by E‑Smart Market Pro.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="card">
+        <h2>Privacy policy</h2>
+        <details open>
+          <summary>Data we collect</summary>
+          <div class="legal-body">
+            <p>No sensitive personal data is collected. Local storage may hold your favorites, theme, and language settings on your device only.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Cookies and analytics</summary>
+          <div class="legal-body">
+            <p>We do not set cookies. External API providers may apply their own policies.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Data sharing and security</summary>
+          <div class="legal-body">
+            <p>We do not share your data with third parties. Avoid entering sensitive information into non‑secure fields.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Changes to this policy</summary>
+          <div class="legal-body">
+            <p>Policy may be updated without prior notice. Continued use implies acceptance of the latest version.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Français -->
+    <section class="lang lang-fr">
+      <div class="card">
+        <h2>Politique d’utilisation</h2>
+        <details open>
+          <summary>Portée et objectif</summary>
+          <div class="legal-body">
+            <p>Cette politique régit l’usage personnel et éducatif du Guide Coran Intelligent, dans le respect du texte coranique et des droits de ses sources.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Utilisation acceptable</summary>
+          <div class="legal-body">
+            <ul>
+              <li>Rechercher, lire et partager de courts extraits en citant sourate et verset.</li>
+              <li>Utiliser le tafsir concis pour l’utilité générale, non pour des fatwas.</li>
+              <li>Respecter l’étiquette liée au contenu coranique.</li>
+            </ul>
+          </div>
+        </details>
+        <details>
+          <summary>Utilisation interdite</summary>
+          <div class="legal-body">
+            <ul>
+              <li>Dénaturer le sens ou sortir des versets de leur contexte pour nuire ou tromper.</li>
+              <li>Redistribution commerciale sans autorisation des ayants droit.</li>
+              <li>Abus de l’interface ou consommation inéquitable des ressources.</li>
+            </ul>
+          </div>
+        </details>
+        <details>
+          <summary>Propriété intellectuelle</summary>
+          <div class="legal-body">
+            <p>Les droits des textes et tafasir appartiennent à leurs sources. La conception et le développement de la plateforme sont protégés par E‑Smart Market Pro.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="card">
+        <h2>Politique de confidentialité</h2>
+        <details open>
+          <summary>Données collectées</summary>
+          <div class="legal-body">
+            <p>Aucune donnée personnelle sensible n’est collectée. Le stockage local peut conserver favoris, thème et langue sur votre appareil.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Cookies et mesure d’audience</summary>
+          <div class="legal-body">
+            <p>Nous ne déposons pas de cookies. Les fournisseurs d’API externes peuvent appliquer leurs propres politiques.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Partage et sécurité</summary>
+          <div class="legal-body">
+            <p>Vos données ne sont pas partagées avec des tiers. Évitez de saisir des informations sensibles dans des champs non sécurisés.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Modifications</summary>
+          <div class="legal-body">
+            <p>La politique peut être mise à jour sans préavis. L’usage continu vaut acceptation de la version la plus récente.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer container">
+    <p>تصميم وتطوير: <strong>طارق ناجمي</strong> — جميع الحقوق محفوظة لـ <strong>E‑Smart Market Pro</strong></p>
+  </footer>
+</body>
+</html>

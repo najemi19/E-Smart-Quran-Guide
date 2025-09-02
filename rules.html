@@ -1,2 +1,170 @@
-<h2>الأحكام الشرعية</h2>
-<div>يجب الطهارة قبل قراءة القرآن الكريم. يُستحب الترتيل والتدبر.</div>
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>الأحكام والتنبيهات الشرعية | مرشد القرآن الذكي</title>
+  <link rel="icon" href="quran.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .toggle { position: absolute; inline-size:1px; block-size:1px; clip:rect(0 0 0 0); clip-path:inset(50%); overflow:hidden; white-space:nowrap; }
+    .page .lang { display:none; }
+    #lang-ar:checked ~ .page .lang-ar { display:block; }
+    #lang-en:checked ~ .page .lang-en { display:block; }
+    #lang-fr:checked ~ .page .lang-fr { display:block; }
+    .lang-switch .btn { padding:6px 10px; }
+    .legal details { margin-top: 10px; }
+    .legal summary { cursor: pointer; font-weight: 600; color: var(--gold); }
+    .legal .card { margin-top: 12px; }
+  </style>
+</head>
+<body>
+  <input id="lang-ar" class="toggle" type="radio" name="lang" checked />
+  <input id="lang-en" class="toggle" type="radio" name="lang" />
+  <input id="lang-fr" class="toggle" type="radio" name="lang" />
+
+  <header class="app-header container">
+    <div class="brand">
+      <img src="quran.svg" alt="Quran" class="logo" />
+      <div>
+        <h1>الأحكام والتنبيهات الشرعية</h1>
+        <p class="subtitle">تنبيهات أدبية وضوابط مختصرة للتعامل مع النص القرآني</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <div class="lang-switch">
+        <label class="btn ghost small" for="lang-ar">AR</label>
+        <label class="btn ghost small" for="lang-en">EN</label>
+        <label class="btn ghost small" for="lang-fr">FR</label>
+      </div>
+      <a class="btn ghost" href="index.html">الرئيسية</a>
+      <a class="btn ghost" href="donate.html">تبرع</a>
+      <a class="btn ghost" href="signup.html">التسجيل</a>
+      <a class="btn ghost" href="login.html">تسجيل الدخول</a>
+    </div>
+  </header>
+
+  <main class="container page legal">
+    <!-- Arabic -->
+    <section class="lang lang-ar">
+      <div class="card">
+        <h2>تنبيهات عامة</h2>
+        <details open>
+          <summary>المصدرية والتوثيق</summary>
+          <div class="legal-body">
+            <p>يعرض الموقع نص القرآن والتفسير المختصر من مصادر عامة. للإفتاء أو البتّ في القضايا الشرعية يُرجى الرجوع إلى أهل العلم.</p>
+          </div>
+        </details>
+        <details>
+          <summary>الاستشهاد والاقتباس</summary>
+          <div class="legal-body">
+            <p>يجوز اقتباس الآيات مع ذكر السورة ورقم الآية. يُفضّل مراجعة المصحف المعتمد قبل الاستشهاد في السياقات الرسمية.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="card">
+        <h2>آداب التلاوة والتعامل</h2>
+        <details open>
+          <summary>آداب عامة</summary>
+          <div class="legal-body">
+            <ul>
+              <li>الطهارة والاحترام عند تلاوة الآيات.</li>
+              <li>التدبر وعدم إخراج النص عن سياقه.</li>
+              <li>سؤال أهل الاختصاص عند الإشكال.</li>
+            </ul>
+          </div>
+        </details>
+        <details>
+          <summary>سياق النص</summary>
+          <div class="legal-body">
+            <p>تُفهم الآية في ضوء السورة والسنّة وأقوال العلماء، وتُجمع الأدلة قبل تقرير الحكم.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- English -->
+    <section class="lang lang-en">
+      <div class="card">
+        <h2>General notes</h2>
+        <details open>
+          <summary>Sources and verification</summary>
+          <div class="legal-body">
+            <p>Quran text and concise tafsir are displayed from public sources. For fatwas or legal rulings, consult qualified scholars.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Citation</summary>
+          <div class="legal-body">
+            <p>You may quote verses with surah and ayah. For formal contexts, verify using an approved Mushaf.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="card">
+        <h2>Etiquette and handling</h2>
+        <details open>
+          <summary>Etiquette</summary>
+          <div class="legal-body">
+            <ul>
+              <li>Purity and reverence when reciting.</li>
+              <li>Reflect and avoid taking verses out of context.</li>
+              <li>Seek scholars’ guidance when in doubt.</li>
+            </ul>
+          </div>
+        </details>
+        <details>
+          <summary>Context</summary>
+          <div class="legal-body">
+            <p>Understand verses within the broader context of the surah, Sunnah, and scholarly exegesis before deriving rulings.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Français -->
+    <section class="lang lang-fr">
+      <div class="card">
+        <h2>Remarques générales</h2>
+        <details open>
+          <summary>Sources et vérification</summary>
+          <div class="legal-body">
+            <p>Le texte coranique et le tafsir concis proviennent de sources publiques. Pour les avis juridiques, consultez des savants qualifiés.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Citation</summary>
+          <div class="legal-body">
+            <p>Vous pouvez citer les versets en indiquant sourate et verset. Pour les contextes officiels, vérifiez dans un Mushaf approuvé.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="card">
+        <h2>Étiquette et usage</h2>
+        <details open>
+          <summary>Étiquette</summary>
+          <div class="legal-body">
+            <ul>
+              <li>Pureté et respect durant la récitation.</li>
+              <li>Éviter de sortir les versets de leur contexte.</li>
+              <li>Consulter des savants en cas de doute.</li>
+            </ul>
+          </div>
+        </details>
+        <details>
+          <summary>Contexte</summary>
+          <div class="legal-body">
+            <p>Comprendre les versets à la lumière de la sourate, de la Sunna et des exégèses avant toute déduction juridique.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer container">
+    <p>تصميم وتطوير: <strong>طارق ناجمي</strong> — جميع الحقوق محفوظة لـ <strong>E‑Smart Market Pro</strong></p>
+  </footer>
+</body>
+</html>
