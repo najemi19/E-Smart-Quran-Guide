@@ -1,0 +1,56 @@
+body {
+  font-family: 'Cairo', sans-serif;
+  background: linear-gradient(to bottom, #0f1c2e, #1c2a3a);
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+header {
+  background: #d4af37;
+  text-align: center;
+  padding: 1rem;
+}
+.logo {
+  width: 80px;
+  animation: pulse 3s infinite;
+}
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+.search-section {
+  text-align: center;
+  margin: 2rem;
+}
+input, button {
+  padding: 0.5rem;
+  margin: 0.5rem;
+  border-radius: 5px;
+  border: none;
+}
+button {
+  background: #d4af37;
+  color: #0f1c2e;
+  font-weight: bold;
+}
+.ayah-card {
+  background: #1c2a3a;
+  border: 1px solid #d4af37;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 10px;
+}
+.tafsir {
+  display: none;
+  margin-top: 0.5rem;
+  background: #0f1c2e;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+footer {
+  background: #d4af37;
+  color: #0f1c2e;
+  text-align: center;
+  padding: 1rem;
+}
