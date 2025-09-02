@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مرشد القرآن الذكي</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header>
+    <img src="quran.svg" alt="القرآن الكريم" class="logo" />
+    <h1>📖 مرشد القرآن الذكي</h1>
+  </header>
+
+  <main>
+    <section class="search-section">
+      <input type="text" id="searchInput" placeholder="ابحث بكلمة مفتاحية..." />
+      <button onclick="searchAyah()">🔍 بحث</button>
+      <button onclick="startVoiceSearch()">🎤 صوت</button>
+    </section>
+
+    <section id="results" class="results"></section>
+  </main>
+
+  <footer>
+    تصميم وتطوير: طارق ناجمي — جميع الحقوق محفوظة لـ E-Smart Market Pro
+  </footer>
+</body>
+</html>
