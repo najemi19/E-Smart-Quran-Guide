@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>تسجيل الدخول | مرشد القرآن الذكي</title>
+  <link rel="icon" href="quran.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .auth-card { max-width: 420px; margin: 32px auto; }
+    .auth-card input { margin-bottom: 12px; }
+  </style>
+</head>
+<body>
+  <header class="app-header container">
+    <h1>تسجيل الدخول</h1>
+    <a class="btn ghost" href="index.html">الرئيسية</a>
+  </header>
+
+  <main class="container">
+    <div class="card auth-card">
+      <form onsubmit="alert('دخول تجريبي — اربط بقاعدة بيانات حقيقية للإطلاق'); return false;">
+        <input type="email" placeholder="البريد الإلكتروني" required />
+        <input type="password" placeholder="كلمة المرور" required />
+        <button type="submit" class="btn primary">دخول</button>
+      </form>
+      <p>ليس لديك حساب؟ <a href="signup.html">إنشاء حساب</a></p>
+    </div>
+  </main>
+</body>
+</html>
