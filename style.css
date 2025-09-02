@@ -149,3 +149,23 @@ input[type="search"], select, input[type="email"], input[type="password"], input
   margin: 6px 0;
   color: var(--text);
 }
+.footer-links {
+  display: grid;
+  gap: 8px;
+}
+.footer-links details {
+  background: var(--bg-soft);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 8px;
+  padding: 8px;
+}
+.footer-links summary {
+  cursor: pointer;
+  font-weight: bold;
+  color: var(--gold);
+}
+.footer-links p {
+  margin: 6px 0;
+  color: var(--text);
+}
+
