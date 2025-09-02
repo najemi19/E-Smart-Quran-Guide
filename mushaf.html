@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>المصحف المرقوم | مرشد القرآن الذكي</title>
+  <link rel="icon" href="quran.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .ayah { padding: 8px; margin: 4px 0; border-radius: 6px; }
+    .ayah.active { background: #f5e6c5; }
+    .ayah-number { color: #b58900; font-weight: bold; margin-inline: 4px; }
+    .controls { margin-top: 8px; }
+    audio { width: 100%; margin-top: 4px; }
+  </style>
+</head>
+<body>
+  <header class="app-header container">
+    <div class="brand">
+      <img src="quran.svg" alt="Quran" class="logo" />
+      <div>
+        <h1>المصحف المرقوم</h1>
+        <p class="subtitle">تلاوة متزامنة مع النص</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <a class="btn ghost" href="index.html">الرئيسية</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <h2>سورة الفاتحة</h2>
+      <div id="mushaf">
+        <div class="ayah" data-audio="audio/001001.mp3">
+          <span class="ayah-text">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</span>
+          <span class="ayah-number">(1)</span>
+        </div>
+        <div class="ayah" data-audio="audio/001002.mp3">
+          <span class="ayah-text">الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ</span>
+          <span class="ayah-number">(2)</span>
+        </div>
+        <!-- أكمل باقي الآيات -->
+      </div>
+      <div class="controls">
+        <audio id="player" controls></audio>
+      </div>
+    </div>
+  </main>
+
+  <footer class="app-footer container">
+    <p>تصميم وتطوير: <strong>طارق ناجمي</strong> — جميع الحقوق محفوظة لـ <strong>E‑Smart Market Pro</strong></p>
+  </footer>
+
+  <script>
+    const ayahs = document.querySelectorAll('.ayah');
+    const player = document.getElementById('player');
+
+    ayahs.forEach(ayah => {
+      ayah.addEventListener('click', () => {
+        ayahs.forEach(a => a.classList.remove('active'));
+        ayah.classList.add('active');
+        player.src = ayah.dataset.audio;
+        player.play();
+      });
+    });
+
+    player.addEventListener('ended', () => {
+      const current = document.querySelector('.ayah.active');
+      if (current && current.nextElementSibling) {
+        current.nextElementSibling.click();
+      }
+    });
+  </script>
+</body>
+</html>
