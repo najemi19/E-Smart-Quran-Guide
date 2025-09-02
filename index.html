@@ -1,100 +1,197 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>مرشد القرآن الذكي</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="icon" href="assets/images/quran-icon.png" type="image/png" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title data-i18n="app.title">مرشد القرآن الذكي</title>
+  <meta name="description" content="بحث ذكي في القرآن الكريم مع تفسير، مفضلة، صوت، ووضع ليلي بثلاث لغات." />
+  <link rel="icon" href="quran.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://api.alquran.cloud" crossorigin />
+  <link rel="preconnect" href="https://api.quran.com" crossorigin />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- ====== رأس الصفحة ====== -->
   <header class="app-header container">
-    <div class="logo">
-      <img src="assets/images/quran-icon.png" alt="شعار القرآن الكريم" class="logo-icon" />
-      <h1>مرشد القرآن الذكي</h1>
+    <div class="brand">
+      <img src="quran.svg" alt="Quran" class="logo" />
+      <div>
+        <h1 data-i18n="app.title">مرشد القرآن الذكي</h1>
+        <p class="subtitle" data-i18n="app.subtitle">ابحث بكلمة مفتاحية، واقرأ التفسير المختصر عند الطلب</p>
+      </div>
     </div>
-
-    <nav class="main-nav">
-      <a href="index.html">الرئيسية</a>
-      <a href="matrix.html">المصفوفة القرآنية</a>
-      <a href="mushaf.html">المصحف</a>
-      <a href="donate.html">تبرع للتطوير</a>
-      <a href="login.html">تسجيل الدخول</a>
-    </nav>
+    <div class="header-actions">
+      <div class="lang-switch">
+        <button class="btn ghost small" data-lang="ar">AR</button>
+        <button class="btn ghost small" data-lang="en">EN</button>
+        <button class="btn ghost small" data-lang="fr">FR</button>
+      </div>
+      <a class="btn ghost" href="matrix.html">المصفوفة القرآنية</a>
+      <a class="btn ghost" href="donate.html" data-i18n="nav.donate">تبرع للتطوير</a>
+      <a class="btn ghost" href="signup.html" data-i18n="nav.signup">التسجيل</a>
+      <a class="btn ghost" href="login.html" data-i18n="nav.login">تسجيل الدخول</a>
+      <button id="themeToggle" class="btn ghost" aria-label="Toggle theme">🌙</button>
+      <a class="btn ghost" href="policy.html" data-i18n="nav.policy">السياسة</a>
+      <a class="btn ghost" href="terms.html" data-i18n="nav.terms">الشروط</a>
+      <a class="btn ghost" href="rules.html" data-i18n="nav.rules">الأحكام</a>
+    </div>
   </header>
 
-  <!-- ====== قسم البحث ====== -->
   <main class="container">
-    <section class="search-section">
-      <h2>ابحث بكلمة مفتاحية، واقرأ التفسير المختصر</h2>
-      <div class="search-box">
-        <input type="text" placeholder="أدخل كلمة مفتاحية (مثال: الرحمة، الصبر)..." />
-        <button class="btn">🔍 بحث</button>
-        <button class="btn">🎤 صوت</button>
+    <section class="search-card card">
+      <div class="search-row">
+        <input id="queryInput" type="search" placeholder="أدخل كلمة مفتاحية (مثال: الرحمة، الصبر)..." aria-label="Search" data-i18n-placeholder="search.placeholder" />
+        <button id="searchBtn" class="btn primary" data-i18n="search.button">🔍 بحث</button>
+        <button id="voiceBtn" class="btn" title="Voice search" data-i18n="search.voice">🎤 صوت</button>
       </div>
-      <div class="options">
-        <label>الوضع الليلي <input type="checkbox" /></label>
-        <label>نسق النص:
-          <select>
-            <option>مبسّط</option>
-            <option>عثماني</option>
+      <div class="options-row">
+        <label class="switch">
+          <input type="checkbox" id="darkMode" />
+          <span data-i18n="options.dark">الوضع الليلي</span>
+        </label>
+        <label>
+          <span data-i18n="options.script">نسق النص:</span>
+          <select id="editionSelect" title="Quran edition">
+            <option value="quran-uthmani" data-i18n="options.uthmani">عثماني</option>
+            <option value="quran-simple" selected data-i18n="options.simple">مبسّط</option>
+            <option value="quran-uthmani-min" data-i18n="options.uthmaniMin">عثماني مختصر</option>
           </select>
         </label>
-        <label>التفسير:
-          <select>
-            <option>التفسير الميسّر (عربي)</option>
-            <option>English Tafsir</option>
-            <option>Français Tafsir</option>
+        <label>
+          <span data-i18n="options.tafsir">التفسير:</span>
+          <select id="tafsirSelect" title="Tafsir source">
+            <option value="169" selected data-i18n="tafsir.muyassar">التفسير الميسّر (عربي)</option>
+            <option value="167" data-i18n="tafsir.jalalayn">تفسير الجلالين (عربي)</option>
+            <option value="170" data-i18n="tafsir.saadi">تفسير السعدي (عربي)</option>
           </select>
         </label>
       </div>
-      <p class="hint">💡 اكتب 3 أحرف أو أكثر للحصول على نتائج أدق. يمكنك حفظ أي آية في المفضلة.</p>
+      <p class="hint" data-i18n="search.hint">تلميح: اكتب 3 أحرف أو أكثر للحصول على نتائج أدق. يمكنك حفظ أي آية في المفضلة.</p>
     </section>
 
-    <!-- ====== قسم النتائج ====== -->
-    <section class="results-section">
-      <div class="results-header">
-        <button class="btn">⬅ السابق</button>
-        <button class="btn">التالي ➡</button>
-        <button class="btn">⭐ المفضلة</button>
-        <button class="btn danger">مسح الكل</button>
+    <section class="layout-grid">
+      <div class="results card">
+        <div class="results-header">
+          <h2 data-i18n="results.title">النتائج</h2>
+          <span id="resultCount" class="muted"></span>
+        </div>
+        <div id="resultsList" class="list"></div>
+        <div id="resultsStatus" class="status"></div>
+        <div class="pager">
+          <button id="prevPage" class="btn" disabled data-i18n="pager.prev">السابق</button>
+          <span id="pageInfo" class="muted"></span>
+          <button id="nextPage" class="btn" disabled data-i18n="pager.next">التالي</button>
+        </div>
       </div>
-      <div class="results-list">
-        <!-- النتائج ستظهر هنا -->
-      </div>
+
+      <aside class="favorites card">
+        <div class="favorites-header">
+          <h2 data-i18n="fav.title">المفضلة ⭐</h2>
+          <button id="clearFav" class="btn ghost small" data-i18n="fav.clear">مسح الكل</button>
+        </div>
+        <div id="favList" class="list small"></div>
+      </aside>
+    </section>
+
+    <section class="legal card">
+      <h2 data-i18n="legal.title">القسم القانوني</h2>
+
+      <details>
+        <summary data-i18n="legal.policy.title">سياسة الاستخدام والخصوصية</summary>
+        <div class="legal-body">
+          <h3 data-i18n="legal.privacy.h">الخصوصية</h3>
+          <p data-i18n="legal.privacy.p1">لا يجمع هذا المشروع بيانات شخصية حساسة. قد يستخدم المتصفح التخزين المحلي لحفظ المفضلة والوضع الليلي على جهازك فقط.</p>
+          <h3 data-i18n="legal.cookies.h">الملفات المؤقتة وملفات تعريف الارتباط</h3>
+          <p data-i18n="legal.cookies.p1">لا يتم إنشاء ملفات تعريف الارتباط من طرفنا. قد تعتمد واجهات برمجة التطبيقات الخارجية سياسات خاصة بها.</p>
+          <h3 data-i18n="legal.api.h">استخدام واجهات برمجة التطبيقات</h3>
+          <p data-i18n="legal.api.p1">يستخدم المشروع مصادر عامة لعرض النصوص والتفسير. قد تتغير هذه المصادر أو حدودها دون إشعار. في حال تعذر الجلب، سيظهر تنبيه في الواجهة.</p>
+          <h3 data-i18n="legal.content.h">المحتوى الديني</h3>
+          <p data-i18n="legal.content.p1">نصوص القرآن الكريم محفوظة الحقوق لمصادرها. يعرض الموقع النص كما توفره واجهات البرمجة دون تغيير في المعاني، وقد تختلف التنسيقات بين المصادر.</p>
+          <p><a href="policy.html" class="btn small ghost" data-i18n="legal.viewPage">عرض الصفحة الكاملة</a></p>
+        </div>
+      </details>
+
+      <details>
+        <summary data-i18n="legal.terms.title">الشروط والأحكام</summary>
+        <div class="legal-body">
+          <h3 data-i18n="legal.terms.resp.h">الاستخدام المسؤول</h3>
+          <p data-i18n="legal.terms.resp.p1">استخدم الخدمة للأغراض الشخصية والتعليمية. يُمنع إساءة استخدام المحتوى أو تقديمه بشكل يسيء للآخرين.</p>
+          <h3 data-i18n="legal.terms.acc.h">الدقة</h3>
+          <p data-i18n="legal.terms.acc.p1">نسعى لعرض النصوص والتفسير بدقة. مع ذلك، قد تحدث أخطاء نتيجة تغيرات في الخدمات الخارجية.</p>
+          <h3 data-i18n="legal.terms.upd.h">التحديثات</h3>
+          <p data-i18n="legal.terms.upd.p1">قد يتم تحديث المشروع دون إشعار مسبق. استمرارك في الاستخدام يعني قبولك للتحديثات.</p>
+          <h3 data-i18n="legal.terms.disc.h">إخلاء مسؤولية</h3>
+          <p data-i18n="legal.terms.disc.p1">لا يتحمل القائمون على المشروع مسؤولية أي اعتماد خاطئ على النتائج. يُرجى الرجوع إلى المصادر المعتمدة عند الحاجة.</p>
+          <p><a href="terms.html" class="btn small ghost" data-i18n="legal.viewPage">عرض الصفحة الكاملة</a></p>
+        </div>
+      </details>
+
+      <details>
+        <summary data-i18n="legal.rules.title">الأحكام والتنبيهات الشرعية</summary>
+        <div class="legal-body">
+          <h3 data-i18n="legal.rules.note.h">تنبيه</h3>
+          <p data-i18n="legal.rules.note.p1">يعرض هذا الموقع نص القرآن الكريم والتفسير المختصر من مصادر عامة. يُنصح بالرجوع إلى العلماء أو الجهات الشرعية المختصة في المسائل التفصيلية.</p>
+          <h3 data-i18n="legal.rules.quote.h">الاقتباس والاستخدام</h3>
+          <p data-i18n="legal.rules.quote.p1">يمكن اقتباس الآيات مع ذكر السورة والآية. يُفضّل مراجعة المصحف المعتمد للتثبّت قبل الاستشهاد في السياقات الرسمية.</p>
+          <h3 data-i18n="legal.rules.etiquette.h">آداب التلاوة</h3>
+          <ul>
+            <li data-i18n="legal.rules.etiquette.li1">الطهارة والاحترام عند قراءة الآيات.</li>
+            <li data-i18n="legal.rules.etiquette.li2">تجنّب اجتزاء النصوص خارج سياقها.</li>
+            <li data-i18n="legal.rules.etiquette.li3">طلب العلم والرجوع لأهل الاختصاص عند الإشكال.</li>
+          </ul>
+          <p><a href="rules.html" class="btn small ghost" data-i18n="legal.viewPage">عرض الصفحة الكاملة</a></p>
+        </div>
+      </details>
     </section>
   </main>
 
-  <!-- ====== الفوتر ====== -->
   <footer class="app-footer container">
-    <div class="footer-links">
-      <details>
-        <summary>📜 سياسة الاستخدام والخصوصية</summary>
-        <p>لا نقوم بجمع بيانات شخصية حساسة. قد يستخدم الموقع ملفات تعريف الارتباط أو التخزين المحلي لتحسين تجربتك فقط.</p>
-        <a href="policy.html" class="btn small ghost">عرض المزيد</a>
-      </details>
-
-      <details>
-        <summary>📄 الشروط والأحكام</summary>
-        <p>باستخدامك للموقع، فإنك توافق على الالتزام بالشروط المذكورة. يُمنع إساءة استخدام المحتوى أو إعادة نشره بدون إذن.</p>
-        <a href="terms.html" class="btn small ghost">عرض المزيد</a>
-      </details>
-
-      <details>
-        <summary>⚖️ الأحكام والتنبيهات</summary>
-        <p>المحتوى المعروض مأخوذ من مصادر موثوقة، ويُنصح بالرجوع إلى العلماء في المسائل الشرعية التفصيلية.</p>
-        <a href="rules.html" class="btn small ghost">عرض المزيد</a>
-      </details>
-    </div>
-
-    <p style="margin-top:1rem;">
-      تصميم وتطوير: <strong>طارق ناجمي</strong> — جميع الحقوق محفوظة لـ <strong>E‑Smart Market Pro</strong>
-    </p>
+    <p data-i18n="credits.by">تصميم وتطوير: <strong>طارق ناجمي</strong> — جميع الحقوق محفوظة لـ <strong>E-Smart Market Pro</strong></p>
   </footer>
+
+  <template id="verseItemTpl">
+    <article class="verse-item">
+      <div class="verse-meta">
+        <span class="tag surah"></span>
+        <span class="tag ayah"></span>
+      </div>
+      <p class="verse-text"></p>
+      <div class="verse-actions">
+        <button class="btn small toggle-tafsir" data-i18n="actions.tafsir.show">📘 عرض التفسير</button>
+        <button class="btn small save-fav" data-i18n="actions.favorite">⭐ مفضلة</button>
+        <button class="btn small copy-verse" data-i18n="actions.copy">📋 نسخ</button>
+      </div>
+      <div class="tafsir collapse">
+        <div class="tafsir-content"></div>
+      </div>
+    </article>
+  </template>
+
+  <script src="script.js" defer></script>
+  <footer class="app-footer container">
+  <div class="footer-links">
+    <details>
+      <summary>📜 سياسة الاستخدام والخصوصية</summary>
+      <p>لا نقوم بجمع بيانات شخصية حساسة. قد يستخدم الموقع ملفات تعريف الارتباط أو التخزين المحلي لتحسين تجربتك فقط.</p>
+      <a href="policy.html" class="btn small ghost">عرض المزيد</a>
+    </details>
+
+    <details>
+      <summary>📄 الشروط والأحكام</summary>
+      <p>باستخدامك للموقع، فإنك توافق على الالتزام بالشروط المذكورة. يُمنع إساءة استخدام المحتوى أو إعادة نشره بدون إذن.</p>
+      <a href="terms.html" class="btn small ghost">عرض المزيد</a>
+    </details>
+
+    <details>
+      <summary>⚖️ الأحكام والتنبيهات</summary>
+      <p>المحتوى المعروض مأخوذ من مصادر موثوقة، ويُنصح بالرجوع إلى العلماء في المسائل الشرعية التفصيلية.</p>
+      <a href="rules.html" class="btn small ghost">عرض المزيد</a>
+    </details>
+  </div>
+
+  <p style="margin-top:1rem;">
+    تصميم وتطوير: <strong>طارق ناجمي</strong> — جميع الحقوق محفوظة لـ <strong>E‑Smart Market Pro</strong>
+  </p>
+</footer>
 
 </body>
 </html>
-
-
