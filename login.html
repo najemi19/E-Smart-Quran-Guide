@@ -1,31 +1,98 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>تسجيل الدخول | مرشد القرآن الذكي</title>
-  <link rel="icon" href="quran.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    .auth-card { max-width: 420px; margin: 32px auto; }
-    .auth-card input { margin-bottom: 12px; }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مرشد القرآن الذكي</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" href="assets/images/quran-icon.png" type="image/png" />
 </head>
 <body>
+
+  <!-- ====== رأس الصفحة ====== -->
   <header class="app-header container">
-    <h1>تسجيل الدخول</h1>
-    <a class="btn ghost" href="index.html">الرئيسية</a>
+    <div class="logo">
+      <img src="assets/images/quran-icon.png" alt="شعار القرآن الكريم" class="logo-icon" />
+      <h1>مرشد القرآن الذكي</h1>
+    </div>
+
+    <nav class="main-nav">
+      <a href="index.html">الرئيسية</a>
+      <a href="matrix.html">المصفوفة القرآنية</a>
+      <a href="mushaf.html">المصحف</a>
+      <a href="donate.html">تبرع للتطوير</a>
+      <a href="login.html">تسجيل الدخول</a>
+    </nav>
   </header>
 
+  <!-- ====== قسم البحث ====== -->
   <main class="container">
-    <div class="card auth-card">
-      <form onsubmit="alert('دخول تجريبي — اربط بقاعدة بيانات حقيقية للإطلاق'); return false;">
-        <input type="email" placeholder="البريد الإلكتروني" required />
-        <input type="password" placeholder="كلمة المرور" required />
-        <button type="submit" class="btn primary">دخول</button>
-      </form>
-      <p>ليس لديك حساب؟ <a href="signup.html">إنشاء حساب</a></p>
-    </div>
+    <section class="search-section">
+      <h2>ابحث بكلمة مفتاحية، واقرأ التفسير المختصر</h2>
+      <div class="search-box">
+        <input type="text" placeholder="أدخل كلمة مفتاحية (مثال: الرحمة، الصبر)..." />
+        <button class="btn">🔍 بحث</button>
+        <button class="btn">🎤 صوت</button>
+      </div>
+      <div class="options">
+        <label>الوضع الليلي <input type="checkbox" /></label>
+        <label>نسق النص:
+          <select>
+            <option>مبسّط</option>
+            <option>عثماني</option>
+          </select>
+        </label>
+        <label>التفسير:
+          <select>
+            <option>التفسير الميسّر (عربي)</option>
+            <option>English Tafsir</option>
+            <option>Français Tafsir</option>
+          </select>
+        </label>
+      </div>
+      <p class="hint">💡 اكتب 3 أحرف أو أكثر للحصول على نتائج أدق. يمكنك حفظ أي آية في المفضلة.</p>
+    </section>
+
+    <!-- ====== قسم النتائج ====== -->
+    <section class="results-section">
+      <div class="results-header">
+        <button class="btn">⬅ السابق</button>
+        <button class="btn">التالي ➡</button>
+        <button class="btn">⭐ المفضلة</button>
+        <button class="btn danger">مسح الكل</button>
+      </div>
+      <div class="results-list">
+        <!-- النتائج ستظهر هنا -->
+      </div>
+    </section>
   </main>
+
+  <!-- ====== الفوتر ====== -->
+  <footer class="app-footer container">
+    <div class="footer-links">
+      <details>
+        <summary>📜 سياسة الاستخدام والخصوصية</summary>
+        <p>لا نقوم بجمع بيانات شخصية حساسة. قد يستخدم الموقع ملفات تعريف الارتباط أو التخزين المحلي لتحسين تجربتك فقط.</p>
+        <a href="policy.html" class="btn small ghost">عرض المزيد</a>
+      </details>
+
+      <details>
+        <summary>📄 الشروط والأحكام</summary>
+        <p>باستخدامك للموقع، فإنك توافق على الالتزام بالشروط المذكورة. يُمنع إساءة استخدام المحتوى أو إعادة نشره بدون إذن.</p>
+        <a href="terms.html" class="btn small ghost">عرض المزيد</a>
+      </details>
+
+      <details>
+        <summary>⚖️ الأحكام والتنبيهات</summary>
+        <p>المحتوى المعروض مأخوذ من مصادر موثوقة، ويُنصح بالرجوع إلى العلماء في المسائل الشرعية التفصيلية.</p>
+        <a href="rules.html" class="btn small ghost">عرض المزيد</a>
+      </details>
+    </div>
+
+    <p style="margin-top:1rem;">
+      تصميم وتطوير: <strong>طارق ناجمي</strong> — جميع الحقوق محفوظة لـ <strong>E‑Smart Market Pro</strong>
+    </p>
+  </footer>
+
 </body>
 </html>
